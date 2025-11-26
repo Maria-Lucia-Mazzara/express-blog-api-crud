@@ -9,3 +9,8 @@ function show(req, res) {
     res.send("Dettagli del post " + req.params.id);
 }
 
+// risposta con un messaggio
+function store(req, res) {
+    res.send("Creazione nuovo post");
+}
+
