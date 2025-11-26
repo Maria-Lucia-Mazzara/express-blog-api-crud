@@ -20,4 +20,11 @@ function update(req, res) {
 function modify(req, res) {
     res.send("Modifica parziale del post " + req.params.id);
 }
+// qui elimino un singolo elemento
+function destroy(req, res) {
+    res.send("Eliminazione del post " + req.params.id);
+};
+
+module.exports = { index, show, store, update, modify, destroy };
+// esporto le funzioni
 
