@@ -1,17 +1,29 @@
-const express = require('express')
-const router = express.Router()
-const array = require('../dati/posts_array')
+const express = require('express');
+const router = express.Router();
+// importo il controller che contiene tutte le funzioni CRUD
+const postsController = require('../controllers/postsController');
 
+// rotte crud
+// Ogni rotta indica "chi" deve rispondere alla richiesta
+// (il router smista e il controller esegue la logica)
 
-router.get('/', (req, res) => {
-    res.send(array);
-});
+// INDEX: restituisce la lista dei post
+router.get('/', postsController.index);
 
-router.get('/:id', (req, res) => {
-    res.send(`cibo id: ${req.params.id}`);
-})
+// SHOW: restituisce il dettaglio di un post tramite ID
+router.get('/:id', postsController.show);
 
-router.post('/', (req, res) => {
-    res.send('mostro nuova array cibo')
-})
+// STORE: crea un nuovo post
+router.post('/', postsController.store);
+
+// UPDATE: modifica totale di un post
+router.put('/:id', postsController.update);
+
+// MODIFY: modifica parziale di un post
+router.patch('/:id', postsController.modify);
+
+// DESTROY: elimina un post tramite ID
+router.delete('/:id', postsController.destroy);
+
 module.exports = router;
+// esportazione del router per usarlo dentro server.js

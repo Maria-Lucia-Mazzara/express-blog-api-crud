@@ -1,4 +1,6 @@
 
+// questo codice ha il compito di preparare la risposta e mandarla al client
+
 // raccoglie tutta la lista
 function index(req, res) {
     res.send("Lista dei post");
