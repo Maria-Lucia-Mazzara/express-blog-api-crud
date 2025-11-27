@@ -69,9 +69,32 @@ const store = (req, res) => {
 
 
 
-function update(req, res) {
-    res.send("Modifica integrale del post " + req.params.id);
+// function update(req, res) {
+//     res.send("Modifica integrale del post " + req.params.id);
+// }
+
+const update = (req, res) => {
+
+    const id = Number(req.params.id);
+
+    const foundPost = posts.find(post => post.id === id);
+
+    if (!foundPost) {
+        return res.status(418).json({
+            error: "Not Found",
+            message: "I'm a teapot"
+        });
+    }
+
+    foundPost.title = req.body.title;
+    foundPost.content = req.body.content;
+    foundPost.image = req.body.image;
+
+    console.log(posts);
+
+    res.json(foundPost);
 }
+
 
 function modify(req, res) {
     res.send("Modifica parziale del post " + req.params.id);
