@@ -41,10 +41,16 @@ function show(req, res) {
 }
 
 
-// risposta con un messaggio
+// // risposta con un messaggio
+// function store(req, res) {
+//     res.send("Creazione nuovo post");
+// }
+
 function store(req, res) {
+    console.log("Dati ricevuti dal client:", req.body);
     res.send("Creazione nuovo post");
 }
+
 
 function update(req, res) {
     res.send("Modifica integrale del post " + req.params.id);
