@@ -18,6 +18,12 @@ function index(req, res) {
 //     res.send("Dettagli del post " + req.params.id);
 // }
 
+// Questa funzione gestisce la rotta SHOW e restituisce il dettaglio di un singolo post.
+// 1. Recuperiamo l'id dal parametro dinamico dell'URL (es: /posts/3 → id = 3).
+// 2. Convertiamo l'id in numero perché i parametri arrivano sempre come stringhe.
+// 3. Cerchiamo il post corrispondente nell'array usando il metodo find().
+// 4. Se il post NON esiste, rispondiamo con uno stato 404 e un messaggio di errore in formato JSON.
+// 5. Se il post esiste, lo restituiamo al client sotto forma di JSON.
 function show(req, res) {
     const id = parseInt(req.params.id);
 
@@ -39,6 +45,7 @@ function show(req, res) {
 function store(req, res) {
     res.send("Creazione nuovo post");
 }
+
 function update(req, res) {
     res.send("Modifica integrale del post " + req.params.id);
 }
@@ -51,6 +58,13 @@ function modify(req, res) {
 //     res.send("Eliminazione del post " + req.params.id);
 // };
 
+// Questa funzione gestisce la rotta DESTROY ed elimina un singolo post dalla lista.
+// 1. Recuperiamo l'id del post da eliminare dal parametro dinamico dell'URL (es: /posts/3).
+// 2. Convertiamo l'id in numero perché i parametri arrivano come stringhe.
+// 3. Filtriamo l'array rimuovendo il post con l'id indicato, creando una lista aggiornata.
+// 4. Stampiamo nel terminale la nuova lista per verificare l'eliminazione.
+// 5. Rispondiamo al client con lo stato 204 (No Content), che indica che l'operazione
+//    è andata a buon fine ma non c’è nessun contenuto da restituire.
 function destroy(req, res) {
     const id = parseInt(req.params.id);
 

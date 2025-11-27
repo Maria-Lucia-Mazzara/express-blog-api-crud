@@ -3,6 +3,9 @@ const app = express()
 const port = 3000
 const posts = require('./routers/posts')
 
+// comando per leggere il body json 
+app.use(express.json());
+
 app.use(express.static('public'))
 
 app.listen(port, () => {
