@@ -46,10 +46,27 @@ function show(req, res) {
 //     res.send("Creazione nuovo post");
 // }
 
-function store(req, res) {
-    console.log("Dati ricevuti dal client:", req.body);
-    res.send("Creazione nuovo post");
+// function store(req, res) {
+//     console.log("Dati ricevuti dal client:", req.body);
+//     res.send("Creazione nuovo post");
+// }
+
+const store = (req, res) => {
+
+
+    const newPost = {
+        id: Date.now(),
+        ...req.body
+    }
+
+    posts.push(newPost);
+
+    res.status(201).json(newPost);
+
+    console.log(newPost);
+
 }
+
 
 
 function update(req, res) {
