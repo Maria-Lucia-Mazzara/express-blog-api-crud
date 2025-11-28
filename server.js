@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const posts = require('./routers/posts')
 
+
 // comando per leggere il body json 
 app.use(express.json());
 
@@ -18,3 +19,11 @@ app.get('/', (req, res) => {
 
 // Collego il router dei posts
 app.use('/posts', posts)
+
+
+
+// Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inserendo un middleware per la gestione delle rotte non registrate e uno per la gestione degli errori.
+
+// Se viene chiamato un endpoint inesistente, un middleware dovrà rispondere un messaggio e uno status appropriato.
+// Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.
+// >
