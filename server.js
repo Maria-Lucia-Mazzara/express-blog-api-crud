@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 // Collego il router dei posts
 app.use('/posts', posts)
 
-// inserisco l'errore
+// inserisco l'errore utente 
 app.use(notFound)
 
 
